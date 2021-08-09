@@ -2,7 +2,7 @@
 
 function installApp() {
 
-	echo "📣 $2 check exist"
+	echo "📣 check $2 "
 	if [ -e "$1" ]; then
 		echo "✅ $1 installed"
 	else
@@ -16,18 +16,21 @@ function installApp() {
 }
 
 function installCli() {
-	echo "📣 $1 check exist"
+	local install_name=$1
+	local check_cmd=$2
+
+	echo "📣 check $name "
 	local ret='0'
-	command -v $1 >/dev/null 2>&1 || { local ret='1'; }
+	command -v $check_cmd >/dev/null 2>&1 || { local ret='1'; }
 	if [ "$ret" -ne 0 ]; then
-		read -p "⚠️ install :$2 [y/n](enter y)" IS_INSTALL
+		read -p "⚠️ install :$install_name [y/n](enter y)" IS_INSTALL
 		if [ "$IS_INSTALL" == "y" ] || [ "$IS_INSTALL" == "" ]; then
-			echo "==> Installing $1"
-			brew install $1
+			echo "==> Installing $install_name"
+			brew install $install_name
 		fi
 
 	else
-		echo "✅ $1 installed"
+		echo "✅ $install_name installed"
 	fi
 	echo "-----------------------------------------------"
 }

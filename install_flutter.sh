@@ -2,6 +2,5 @@
 
 source ./xii_function.sh
 
-
-installCli cocoapods
-installCli fastlane
+installCli cocoapods pod
+installCli fastlane fastlane

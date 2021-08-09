@@ -4,26 +4,14 @@
 
 source ./xii_function.sh
 
-# declare -A apps=(["iterm2"]="/Applications/iTerm.app" 
-# ["sublime-text"]="/Applications/Sublime\ Text.app" 
-# ["sourcetree"]="/Applications/Sourcetree.app" 
-# )
+# APP
+installApp /Applications/iTerm.app iterm2
+installApp /Applications/Sublime\ Text.app sublime-text
+installApp /Applications/Sourcetree.app sourcetree
 
-declare -A map=(["100"]="1" ["200"]="2")
+# CLI
+installCli wget wget
+installCli youtube-dl youtube-dl
+installCli speedtest speedtest
 
 
-for key in ${!map[@]}
-do
-    echo ${map[$key]}
-done
-
-# for key in ${!apps[@]}; do
-# 	echo "key:"$key
-# 	echo "value:"${apps[$key]}
-# done
-
-# cli_array=(wget tree youtube-dl speedtest)
-
-# for cliName in $cli_array; do
-# 	installCli $cliName
-# done
